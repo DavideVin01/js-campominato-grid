@@ -19,6 +19,13 @@ Aggiungiamo un nuovo elemento con grid.appendChil(cell)
 */
 
 
+
+
+// # Chiamo gli elementi in pagina
+const gridElement = document.getElementById('grid');
+const difficultyElement = document.getElementById('difficulty');
+const buttonElement = document.getElementById('button');
+
 // # FUNZIONI
 const numbersRange = (min, max) => {
     const rangeArray = [];
@@ -36,14 +43,9 @@ const createCell = (cellNumber) => {
     return cell;
 }
 
-
-// # Chiamo gli elementi in pagina
-const gridElement = document.getElementById('grid');
-const difficultyElement = document.getElementById('difficulty');
-const buttonElement = document.getElementById('button');
-
-const cells = numbersRange;
-const columns = numbersRange;
+// DICHIARO VARIABILI
+let cells;
+let columns;
 const totalCells = cells * columns;
 const extractedNumbers = [];
 // # Aggiungo l'evento al bottone
@@ -53,30 +55,38 @@ buttonElement.addEventListener('click', function () {
     let difficultyValue = difficultyElement.value;
 
     // Aggiungo alla griglia il numero degli elementi in base alla difficoltà scelta
-
-
-    for (let i = difficultyValue; i < difficultyValue; i++) {
-
-
-
-        switch (difficultyValue) {
-            case 'diff-1':
-                numbersRange(1, 100);
-
-                break;
-            case 'diff-2':
-                numbersRange(1, 81);
-                break;
-            case 'diff-3':
-                numbersRange(1, 49);
-        }
-
+    switch (difficultyValue) {
+        case 'diff-1':
+            cells = 100;
+            columns = 100;
+            for (let i = 1; i <= 100; i++) {
+                const cell = createCell(totalCells);
+                gridElement.appendChild(cell);
+                // cell.classList.toggle('clicked');
+            }
+            break;
+        case 'diff-2':
+            cells = 81;
+            columns = 81;
+            for (let i = 1; i <= 81; i++) {
+                const cell = createCell(totalCells);
+                gridElement.appendChild(cell);
+                // cell.classList.toggle('clicked');
+            }
+            break;
+        case 'diff-3':
+            cells = 49;
+            columns = 49;
+            for (let i = 1; i <= 49; i++) {
+                const cell = createCell(totalCells);
+                gridElement.appendChild(cell);
+                // cell.classList.toggle('clicked');
+            }
     }
 
 
 
 });
-
 
 
 

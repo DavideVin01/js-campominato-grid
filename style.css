@@ -1,19 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    margin: 0 auto;
+    background-color: darkblue;
+    border: 2px solid white;
+}
+
 #grid {
+    background-color: blue;
     width: 500px;
     height: 500px;
     margin: 100px auto;
     display: flex;
     flex-wrap: wrap;
+    border: 2px solid white;
 }
 
-#grid .cell{
-    height: calc(100% / 8);
-    width: calc(100% / 8);
-    border: 2px solid black;
+.cell{
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 2px solid white;
     cursor: pointer;
-    color: black;
+    color: white;
 }
 
 .clicked{
-    background-color: lightblue;
+    background-color: dodgerblue;
+    color: black;
 }
