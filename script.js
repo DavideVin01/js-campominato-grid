@@ -28,14 +28,22 @@ const numbersRange = (min, max) => {
     return rangeArray;
 }
 
+const createCell = (cellNumber) => {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.id = cellNumber;
+    cell.innerText = cellNumber;
+    return cell;
+}
+
 
 // # Chiamo gli elementi in pagina
 const gridElement = document.getElementById('grid');
 const difficultyElement = document.getElementById('difficulty');
 const buttonElement = document.getElementById('button');
 
-let cells = 0;
-let columns = 0;
+const cells = numbersRange;
+const columns = numbersRange;
 const totalCells = cells * columns;
 const extractedNumbers = [];
 // # Aggiungo l'evento al bottone
@@ -53,19 +61,14 @@ buttonElement.addEventListener('click', function () {
 
         switch (difficultyValue) {
             case 'diff-1':
-                for (let i = 1; i <= 100; i++) {
+                numbersRange(1, 100);
 
-                }
                 break;
             case 'diff-2':
-                for (let i = 1; i <= 81; i++) {
-
-                }
+                numbersRange(1, 81);
                 break;
             case 'diff-3':
-                for (let i = 1; i <= 49; i++) {
-
-                }
+                numbersRange(1, 49);
         }
 
     }
@@ -79,3 +82,9 @@ buttonElement.addEventListener('click', function () {
 
 
 
+
+
+
+
+// for (let i = 1; i <= 100; i++) {
+// }
