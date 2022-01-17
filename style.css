@@ -1,0 +1,19 @@
+#grid {
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid .cell{
+    height: calc(100% / 8);
+    width: calc(100% / 8);
+    border: 2px solid black;
+    cursor: pointer;
+    color: black;
+}
+
+.clicked{
+    background-color: lightblue;
+}

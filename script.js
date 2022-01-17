@@ -18,18 +18,64 @@ Aggiungiamo un nuovo elemento con grid.appendChil(cell)
 - Al click di ogni cella, diventa azzurra
 */
 
+
+// # FUNZIONI
+const numbersRange = (min, max) => {
+    const rangeArray = [];
+    for (let i = min; i <= max; i++) {
+        rangeArray.push(i);
+    }
+    return rangeArray;
+}
+
+
 // # Chiamo gli elementi in pagina
 const gridElement = document.getElementById('grid');
 const difficultyElement = document.getElementById('difficulty');
 const buttonElement = document.getElementById('button');
 
+let cells = 0;
+let columns = 0;
+const totalCells = cells * columns;
+const extractedNumbers = [];
 // # Aggiungo l'evento al bottone
 buttonElement.addEventListener('click', function () {
 
     // Collego gli input in pagina al JS come .value
-    const difficultyValue = difficultyElement.value;
+    let difficultyValue = difficultyElement.value;
 
+    // Aggiungo alla griglia il numero degli elementi in base alla difficoltà scelta
+
+
+    for (let i = difficultyValue; i < difficultyValue; i++) {
+
+
+
+        switch (difficultyValue) {
+            case 'diff-1':
+                for (let i = 1; i <= 100; i++) {
+
+                }
+                break;
+            case 'diff-2':
+                for (let i = 1; i <= 81; i++) {
+
+                }
+                break;
+            case 'diff-3':
+                for (let i = 1; i <= 49; i++) {
+
+                }
+        }
+
+    }
 
 
 
 });
+
+
+
+
+
+
