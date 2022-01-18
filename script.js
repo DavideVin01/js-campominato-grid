@@ -27,13 +27,16 @@ const difficultyElement = document.getElementById('difficulty');
 const buttonElement = document.getElementById('button');
 
 // # FUNZIONI
-const numbersRange = (min, max) => {
+const numbersRange = (min, max, list) => {
     const rangeArray = [];
     for (let i = min; i <= max; i++) {
         rangeArray.push(i);
     }
     return rangeArray;
 }
+
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;;
+
 
 const createCell = (cellNumber) => {
     const cell = document.createElement('div');
@@ -59,11 +62,16 @@ buttonElement.addEventListener('click', function () {
         case 'diff-1':
             cells = 100;
             columns = 100;
+
             for (let i = 1; i <= 100; i++) {
+                const cellNumber = getUniqueRandomNumber(1, 100, extractedNumbers);
                 const cell = createCell(totalCells);
+                extractedNumbers.push(cellNumber);
                 gridElement.appendChild(cell);
-                // cell.classList.toggle('clicked');
+                cell.innerText = cellNumber;
             }
+            console.log(cellNumber);
+
             break;
         case 'diff-2':
             cells = 81;
@@ -83,18 +91,4 @@ buttonElement.addEventListener('click', function () {
                 // cell.classList.toggle('clicked');
             }
     }
-
-
-
 });
-
-
-
-
-
-
-
-
-
-// for (let i = 1; i <= 100; i++) {
-// }
