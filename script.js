@@ -64,7 +64,7 @@ buttonElement.addEventListener('click', function () {
             columns = 100;
 
             for (let i = 1; i <= 100; i++) {
-                const cellNumber = getUniqueRandomNumber(1, 100, extractedNumbers);
+                const cellNumber = numbersRange(1, 100, extractedNumbers);
                 const cell = createCell(totalCells);
                 extractedNumbers.push(cellNumber);
                 gridElement.appendChild(cell);
