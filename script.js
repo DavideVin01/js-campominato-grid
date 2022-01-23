@@ -18,77 +18,80 @@ Aggiungiamo un nuovo elemento con grid.appendChil(cell)
 - Al click di ogni cella, diventa azzurra
 */
 
-
-
+// FUNZIONI DA USARE
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // # Chiamo gli elementi in pagina
 const gridElement = document.getElementById('grid');
 const difficultyElement = document.getElementById('difficulty');
 const buttonElement = document.getElementById('button');
 
-// # FUNZIONI
-const numbersRange = (min, max, list) => {
-    const rangeArray = [];
-    for (let i = min; i <= max; i++) {
-        rangeArray.push(i);
-    }
-    return rangeArray;
-}
+const startEvent = () => {
+buttonElement.innerText = "RICOMINCIA";
 
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;;
+gridElement.innerText = '';
+gridElement.style.display = 'flex';
 
-
-const createCell = (cellNumber) => {
-    const cell = document.createElement('div');
-    cell.className = 'cell';
-    cell.id = cellNumber;
-    cell.innerText = cellNumber;
-    return cell;
-}
-
-// DICHIARO VARIABILI
 let cells;
 let columns;
 const totalCells = cells * columns;
 const extractedNumbers = [];
-// # Aggiungo l'evento al bottone
-buttonElement.addEventListener('click', function () {
 
-    // Collego gli input in pagina al JS come .value
-    let difficultyValue = difficultyElement.value;
+ switch (difficultyElement.value) {
+    case 'diff-1':
+        cells = 100;
+        columns = 100;
 
-    // Aggiungo alla griglia il numero degli elementi in base alla difficoltà scelta
-    switch (difficultyValue) {
-        case 'diff-1':
-            cells = 100;
-            columns = 100;
+        for (let i = 1; i <= 100; i++) {
+            const cellNumber = getRandomNumber(1, 100, extractedNumbers);
+            const cell = createCell(totalCells);
+            extractedNumbers.push(cellNumber);
+            gridElement.appendChild(cell);
+            cell.innerText = cellNumber;
+            console.log(cellNumber);
+        }
 
-            for (let i = 1; i <= 100; i++) {
-                const cellNumber = numbersRange(1, 100, extractedNumbers);
+        break;
+        case 'diff-2':
+            cells = 81;
+            columns = 81;
+    
+            for (let i = 1; i <= 81; i++) {
+                const cellNumber = getRandomNumber(1, 81, extractedNumbers);
                 const cell = createCell(totalCells);
                 extractedNumbers.push(cellNumber);
                 gridElement.appendChild(cell);
                 cell.innerText = cellNumber;
+                console.log(cellNumber);
             }
-            console.log(cellNumber);
+    
+            break;
+            case 'diff-3':
+                cells = 49;
+                columns = 49;
+        
+                for (let i = 1; i <= 49; i++) {
+                    const cellNumber = getRandomNumber(1, 49, extractedNumbers);
+                    const cell = createCell(totalCells);
+                    extractedNumbers.push(cellNumber);
+                    gridElement.appendChild(cell);
+                    cell.innerText = cellNumber;
+                    console.log(cellNumber);
+                }
+        
+                break;
+ }
 
-            break;
-        case 'diff-2':
-            cells = 81;
-            columns = 81;
-            for (let i = 1; i <= 81; i++) {
-                const cell = createCell(totalCells);
-                gridElement.appendChild(cell);
-                // cell.classList.toggle('clicked');
-            }
-            break;
-        case 'diff-3':
-            cells = 49;
-            columns = 49;
-            for (let i = 1; i <= 49; i++) {
-                const cell = createCell(totalCells);
-                gridElement.appendChild(cell);
-                // cell.classList.toggle('clicked');
-            }
+    // CREO LE CELLE
+    function createCell(cellNumber, cellsPerRow) {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.innerText = cellNumber;
+        const wh = `calc(100% / ${cellsPerRow})`;
+        cell.style.height = wh;
+        cell.style.width = wh;
+        return cell;
     }
-});
+};
+
+button.addEventListener("click", () => startEvent());
